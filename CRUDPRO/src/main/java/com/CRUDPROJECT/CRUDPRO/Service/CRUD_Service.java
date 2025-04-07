@@ -14,4 +14,8 @@ public class CRUD_Service {
 
         superHero.save(marvel);
     }
+
+    public Marvel GetHeroById(int val) {
+        return superHero.findById(val).get();
+    }
 }

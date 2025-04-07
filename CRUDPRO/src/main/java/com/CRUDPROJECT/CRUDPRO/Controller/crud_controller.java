@@ -3,10 +3,8 @@ package com.CRUDPROJECT.CRUDPRO.Controller;
 import com.CRUDPROJECT.CRUDPRO.Models.Marvel;
 import com.CRUDPROJECT.CRUDPRO.Service.CRUD_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class crud_controller {
@@ -19,6 +17,16 @@ public class crud_controller {
     @PostMapping(path = "/create")
     public void createSuperhero(@RequestBody Marvel superhero){
         crudService.createSuperhero(superhero);
+    }
+
+    @GetMapping("/read")
+    public ResponseEntity<Marvel> getHeroById(@RequestParam(name = "id") int val) {
+        Marvel hero = crudService.GetHeroById(val);
+        if (hero != null) {
+            return ResponseEntity.ok(hero);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 //    @GetMapping("/ping")
