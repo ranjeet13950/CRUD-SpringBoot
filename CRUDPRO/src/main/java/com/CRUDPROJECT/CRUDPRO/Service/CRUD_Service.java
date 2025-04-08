@@ -18,4 +18,11 @@ public class CRUD_Service {
     public Marvel GetHeroById(int val) {
         return superHero.findById(val).get();
     }
+
+    public void updateSuperheroname(Marvel superhero, int id) {
+        Marvel superherotobeupdated = GetHeroById(id);
+        superherotobeupdated.setRealname(superhero.getRealname());
+
+        superHero.save(superherotobeupdated);
+    }
 }

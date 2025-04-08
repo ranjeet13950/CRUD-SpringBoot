@@ -19,6 +19,7 @@ public class crud_controller {
         crudService.createSuperhero(superhero);
     }
 
+    //Read endpoint
     @GetMapping("/read")
     public ResponseEntity<Marvel> getHeroById(@RequestParam(name = "id") int val) {
         Marvel hero = crudService.GetHeroById(val);
@@ -28,6 +29,14 @@ public class crud_controller {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+    //Update endPoint
+    @PutMapping("/update")
+    public void updateSuperheroname(@RequestBody Marvel superhero,@RequestParam(name = "id") int id){
+        crudService.updateSuperheroname(superhero,id);
+    }
+
 
 //    @GetMapping("/ping")
 //    public String ping(){
