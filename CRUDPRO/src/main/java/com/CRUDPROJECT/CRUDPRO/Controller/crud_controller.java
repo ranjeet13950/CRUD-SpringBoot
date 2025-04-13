@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class crud_controller {
     //CRUD
@@ -42,4 +44,17 @@ public class crud_controller {
     public void deleteSuperHero(@RequestParam(name = "id")int id){
         crudService.deleteSuperhero(id);
     }
+
+
+    @GetMapping("/readAll")
+    public ResponseEntity<List<Marvel>> getAllHeroes() {
+        List<Marvel> heroes = crudService.getAllHeroes();
+        if (!heroes.isEmpty()) {
+            return ResponseEntity.ok(heroes);
+        } else {
+            return ResponseEntity.noContent().build();
+        }
+    }
+
+
 }

@@ -5,6 +5,8 @@ import com.CRUDPROJECT.CRUDPRO.Repository.SuperHero;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CRUD_Service {
 
@@ -28,5 +30,9 @@ public class CRUD_Service {
 
     public void deleteSuperhero(int id) {
         superHero.deleteById(id);
+    }
+
+    public List<Marvel> getAllHeroes() {
+        return superHero.findAll();
     }
 }
