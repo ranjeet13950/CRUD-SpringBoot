@@ -25,4 +25,8 @@ public class CRUD_Service {
 
         superHero.save(superherotobeupdated);
     }
+
+    public void deleteSuperhero(int id) {
+        superHero.deleteById(id);
+    }
 }

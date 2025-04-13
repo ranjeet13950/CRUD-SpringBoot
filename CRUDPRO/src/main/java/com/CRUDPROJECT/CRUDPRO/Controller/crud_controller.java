@@ -37,9 +37,9 @@ public class crud_controller {
         crudService.updateSuperheroname(superhero,id);
     }
 
-
-//    @GetMapping("/ping")
-//    public String ping(){
-//        return "App is running and DB is Connected!!";
-//    }
+    //Delete Mapping
+    @DeleteMapping("delete")
+    public void deleteSuperHero(@RequestParam(name = "id")int id){
+        crudService.deleteSuperhero(id);
+    }
 }
